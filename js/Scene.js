@@ -17,6 +17,7 @@ export default class Scene
         this.camera = new THREE.PerspectiveCamera(75, this.screen.width / this.screen.height, 0.1, 1000)
         this.camera.position.z = 4
         this.createSphere()
+        this.createSpace()
         this.controls = new THREE.OrbitControls(this.camera, this.renderer)
         this.renderer = new THREE.WebGLRenderer()
 
@@ -36,8 +37,13 @@ export default class Scene
     // Create sphere
     createSphere()
     {
-        this.geometry = new THREE.SphereGeometry(2, 32, 32)
+        this.sphereGeometry = new THREE.SphereGeometry(2, 32, 32)
+        this.wireframe = new THREE.WireframeGeometry(this.sphereGeometry)
+
+        // Texture
         this.texture = new THREE.TextureLoader().load('../src/medias/textures/texture_01.jpg')
+
+        // Material
         this.material = new THREE.MeshBasicMaterial(
             {
                 map: this.texture,
@@ -45,15 +51,32 @@ export default class Scene
                 wireframe: false
             }
         )
-        this.sphere = new THREE.Mesh(this.geometry, this.material)
 
+        // Structure render
+        this.sphere = new THREE.Mesh(this.sphereGeometry, this.material)
+
+        // Adding to scene
         this.scene.add(this.sphere)
     }
 
-    // Texture the sphere
-    textureSphere()
+    createSpace()
     {
+        this.starsGeometry = new THREE.Geometry();
 
+        for ( var i = 0; i < 10000; i ++ )
+        {
+            this.star = new THREE.Vector3()
+            this.star.x = THREE.Math.randFloatSpread(2000)
+            this.star.y = THREE.Math.randFloatSpread(2000)
+            this.star.z = THREE.Math.randFloatSpread(2000)
+
+            this.starsGeometry.vertices.push( this.star )
+        }
+
+        this.starsMaterial = new THREE.PointsMaterial( { color: 0x888888 } )
+        this.starField = new THREE.Points( this.starsGeometry, this.starsMaterial )
+
+        this.scene.add( this.starField )
     }
 
     // Interact object functions
