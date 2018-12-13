@@ -9,6 +9,9 @@ export default class Scene
             height: window.innerHeight
         }
 
+        // Booleans
+        this.isClicked = false
+
         // Scene & Camera setup
         this.scene = new THREE.Scene()
         this.camera = new THREE.PerspectiveCamera(75, this.screen.width / this.screen.height, 0.1, 1000)
@@ -19,6 +22,8 @@ export default class Scene
 
         // Events
         window.addEventListener('resize', () => this.resize())
+        window.addEventListener('mousedown', () => this.isClicked = true)
+        window.addEventListener('mouseup', () => this.isClicked = false)
 
         // Start the loop
         this.loop = this.loop.bind(this)
@@ -32,10 +37,12 @@ export default class Scene
     createSphere()
     {
         this.geometry = new THREE.SphereGeometry(2, 32, 32)
+        this.texture = new THREE.TextureLoader().load('../src/medias/textures/texture_01.jpg')
         this.material = new THREE.MeshBasicMaterial(
             {
+                map: this.texture,
                 color: 0xFFFFFF,
-                wireframe: true
+                wireframe: false
             }
         )
         this.sphere = new THREE.Mesh(this.geometry, this.material)
@@ -52,7 +59,7 @@ export default class Scene
     // Interact object functions
     rotateElement(_e)
     {
-        _e.rotation.x += 0.01
+        _e.rotation.x += 0.001
         _e.rotation.y += 0.005
     }
 
@@ -85,7 +92,10 @@ export default class Scene
     {
         requestAnimationFrame(this.loop)
         this.update()
-        this.rotateElement(this.sphere)
+        if(!this.isClicked)
+        {
+            this.rotateElement(this.sphere)
+        }
         this.render()
     }
 }
