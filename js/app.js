@@ -1,3 +1,4 @@
-import Scene from './Scene.js'
 
-new Scene()
+import Renderer from './components/Renderer.js'
+
+new Renderer()

@@ -10,7 +10,7 @@ export default class Scene
         }
 
         // Booleans
-        this.isClicked = false
+        this.isClicked = true
 
         // Scene & Camera setup
         this.scene = new THREE.Scene()
@@ -19,12 +19,19 @@ export default class Scene
         this.createSphere()
         this.createSpace()
         this.controls = new THREE.OrbitControls(this.camera, this.renderer)
+        this.controls.minDistance = 3
+        this.controls.maxDistance = 10
+        this.controls.rotateSpeed = 0.2
+        this.controls.autoRotate = true
+        this.controls.autoRotateSpeed = 0.5
+        this.controls.maxPolarAngle = Math.PI / 1.5
+        this.controls.minPolarAngle = 1
         this.renderer = new THREE.WebGLRenderer()
 
         // Events
         window.addEventListener('resize', () => this.resize())
-        window.addEventListener('mousedown', () => this.isClicked = true)
-        window.addEventListener('mouseup', () => this.isClicked = false)
+        // window.addEventListener('mousedown', () => this.isClicked = true)
+        // window.addEventListener('mouseup', () => this.isClicked = false)
 
         // Start the loop
         this.loop = this.loop.bind(this)
@@ -104,6 +111,7 @@ export default class Scene
     {
         this.renderer.setSize(this.screen.width, this.screen.height)
         document.body.appendChild(this.renderer.domElement)
+        this.controls.update()
     }
 
     render()
