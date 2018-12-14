@@ -1,10 +1,10 @@
 import Renderer from './Renderer.js'
 
-export default class Camera extends Renderer
+export default class Camera //extends Renderer
 {
     constructor()
     {
-        super()
+        //super()
         this.screen =
         {
             width: window.innerWidth,
@@ -38,7 +38,12 @@ export default class Camera extends Renderer
         this.getCamera = this.getCamera.bind(this)
     }
 
-    initCamera() { this.camera.lookAt(this.properties.target) }
+    // Config where our camera will look
+    initCamera()
+    {
+        this.camera.lookAt(this.properties.target)
+        this.camera.position.set(4, 0, 4)
+    }
 
     // Setup & update functions
     resize()
