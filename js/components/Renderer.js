@@ -10,11 +10,8 @@ export default class Renderer extends Controler
             width: window.innerWidth,
             height: window.innerHeight
         }
-        
-        //const world = new World()
 
         document.body.appendChild(this.properties.renderer.domElement)
-        this.$canvas = document.querySelector('canvas')
 
         // Bind & start the loop
         this.loop = this.loop.bind(this)

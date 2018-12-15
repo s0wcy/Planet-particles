@@ -1,6 +1,6 @@
 import Renderer from './Renderer.js'
 
-export default class Camera //extends Renderer
+export default class Camera
 {
     constructor()
     {
@@ -22,9 +22,6 @@ export default class Camera //extends Renderer
 
         this.camera = null
 
-        // Listen for resize
-        window.addEventListener('resize', () => this.resize())
-
         // Init camera
         this.camera = new THREE.PerspectiveCamera(
             this.properties.fov,
@@ -34,6 +31,9 @@ export default class Camera //extends Renderer
         )
 
         this.initCamera()
+
+        // Listen for resize
+        window.addEventListener('resize', () => this.resize())
 
         this.getCamera = this.getCamera.bind(this)
     }
@@ -54,7 +54,8 @@ export default class Camera //extends Renderer
         // keep aspect ratio of camera
         this.properties.aspect = this.screen.width / this.screen.height
         this.camera.updateProjectionMatrix()
-
+        
+        this.$canvas = document.querySelector('canvas')
         this.$canvas.style.width = this.screen.width
         this.$canvas.style.height = this.screen.height
     }

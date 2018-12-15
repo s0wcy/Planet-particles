@@ -15,11 +15,11 @@ export default class Controler extends World
             scene: this.scene,
             zoom:
             {
-                min: 3,
-                max: 14,
+                min: 35,
+                max: 110,
                 speed: 0.2
             },
-            speed: 0.4,
+            speed: 0.6,
             angle:
             {
                 min: 1,
@@ -39,7 +39,7 @@ export default class Controler extends World
         this.controler.maxDistance = this.properties.zoom.max
         this.controler.rotateSpeed = this.properties.zoom.speed
         this.controler.autoRotate = true
-        this.controler.autoRotateSpee = this.properties.speed
+        this.controler.autoRotateSpeed = this.properties.speed
         this.controler.minPolarAngle = this.properties.angle.min
         this.controler.maxPolarAngle = this.properties.angle.max
     }
