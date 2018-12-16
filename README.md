@@ -1,42 +1,35 @@
-# PlanetSaver
+# Planet Particles
 Experience interactive gestion of a civilisation.
 
 ### Built With
 - HTML5
-- JavaScript - Canvas & [THREE.JS](https://threejs.org/docs/index.html)
-- [SASS](https://sass-lang.com/)
+- JavaScript ES6 - WebGL using [THREE.JS](https://threejs.org/docs/index.html)
 
-![JavaScript](https://cdn.iconscout.com/icon/free/png-128/javascript-1-225993.png) **+** ![SASS](https://cdn.iconscout.com/icon/free/png-128/sass-226054.png)
+![ES6](https://cdn.iconscout.com/icon/free/png-128/javascript-1-225993.png) **+** ![WebGL](https://www.uplabs.com/tools/webgl.png)
 
 ### Installing
 
-A online demo is available : **[PlanetSaver](http://www.achabe.com/planetsaver/)**
+A online demo is available : **[PlanetParticles](http://www.achabe.com/webgl/)**
 
 I recommend using a emulated server (MAMP will do the work) if you decide to edit or fork this project locally.
 You can also use **[serve](https://www.npmjs.com/package/serve)** command to emulate your server quickly directly on your terminal : `npm install -g serve`. (works on VS Code too)
 
-Also, you'll need a **[SASS compiler](http://koala-app.com/)** to edit scss files, we don't use webpack.
-
 ### Main features
-- Souds design
-- Custom THREE.JS planets
-- Planet interactions
-- Storytelling
-- Interractive questions
+- THREE.JS planet particles
+- Custom OrbitControls
+- Bloom shader
 
 ### How it works ?
 
-This javascript web ewperience use class structure.
+In "components" you will find all we need to render our scene :
+- Camera = create a camera and define his properties, also take care of responsive.
+- Controler = create an OrbitControls & customise it.
+- World = define the scene & each elements who will be placed in.
+- Renderer = apply any postprocessing elements as bloom shader & fxaa antialiasing.
+
 
 ### Author
-Developpers :
-- **Alexandre Chabeau**
-- **Damien Smagghe**
-Story Telling :
-- **Louis-Charles Petit**
-- **Amaury Mouquet**
-- **Camille Robillard**
-Illustrations :
-- **Axel Thomas**
+
+[**Alexandre Chabeau**](http://www.achabe.com)
 
 Have fun modifying it :+1:
