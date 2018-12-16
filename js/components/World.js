@@ -47,27 +47,3 @@ export default class World
 
     getScene() { return this.scene }
 }
-
-    // createPlanet()
-    // {
-    //     this.sphereGeometry = new THREE.SphereGeometry(2, 32, 32)
-    //     this.wireframe = new THREE.WireframeGeometry(this.sphereGeometry)
-
-    //     // Texture
-    //     this.texture = new THREE.TextureLoader().load('../src/medias/textures/texture_01.jpg')
-
-    //     // Material
-    //     this.material = new THREE.MeshBasicMaterial(
-    //         {
-    //             map: this.texture,
-    //             color: 0xFFFFFF,
-    //             wireframe: false
-    //         }
-    //     )
-
-    //     // Structure render
-    //     this.sphere = new THREE.Mesh(this.sphereGeometry, this.material)
-
-    //     // Adding to scene
-    //     this.scene.add(this.sphere)
-    // }

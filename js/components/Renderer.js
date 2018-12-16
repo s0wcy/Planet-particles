@@ -13,10 +13,20 @@ export default class Renderer extends Controler
 
         document.body.appendChild(this.properties.renderer.domElement)
 
+        // Lights
+        this.light = null
+        this.lightProperties =
+        {
+            color: 0xffffff,
+            intensity: 1,
+            distance: 1000,
+            number: 1,
+            decay: 0
+        }
+
         // Postpro elements
         this.composer = null
         this.renderPass = null
-
         this.bloomPass = null
 
         // Bind & start the loop
@@ -34,6 +44,22 @@ export default class Renderer extends Controler
     render(_properties)
     {
         this.properties.renderer.render(_properties.scene, _properties.camera)
+    }
+
+    // Lights
+
+    initLight()
+    {
+        this.light = new THREE.PointLight(
+            this.lightProperties.color,
+            this.lightProperties.intensity,
+            this.lightProperties.distance,
+            this.lightProperties.number,
+            this.lightProperties.decay
+        )
+
+        this.light.position.set(50, 50, 50)
+        this.properties.scene.add(this.light)
     }
 
     // Postprocessing
