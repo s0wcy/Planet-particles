@@ -8,6 +8,22 @@ export default class Controler extends World
         super()
         const camera = new Camera()
 
+        this.mouse =
+        {
+            mouseX: 0,
+            mouseXdown: 0,
+            mouseY: 0,
+            mouseYdown: 0
+        }
+
+        this.screen =
+        {
+            width: window.innerWidth,
+            halfWidth: window.innerWidth / 2,
+            height: window.innerHeight,
+            halfHeight: window.innerHeight / 2
+        }
+
         this.properties =
         {
             camera: camera.camera,
@@ -19,7 +35,7 @@ export default class Controler extends World
                 max: 110,
                 speed: 0.2
             },
-            speed: 0.6,
+            speed: 0.1,
             angle:
             {
                 min: 1,
@@ -42,5 +58,7 @@ export default class Controler extends World
         this.controler.autoRotateSpeed = this.properties.speed
         this.controler.minPolarAngle = this.properties.angle.min
         this.controler.maxPolarAngle = this.properties.angle.max
+        this.controler.enableDamping = true
+        this.dampingFactor = 1
     }
 }

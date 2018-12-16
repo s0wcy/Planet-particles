@@ -13,7 +13,7 @@ export default class Camera
 
         this.properties =
         {
-            fov: 75,
+                fov: 75,
             aspect: this.screen.width / this.screen.height,
             near: 0.8,
             far: 100,
