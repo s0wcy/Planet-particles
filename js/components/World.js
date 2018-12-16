@@ -4,9 +4,9 @@ export default class World
     {
         this.scene = new THREE.Scene()
 
-        this.createParticles(100000, 0.1, 0x9D001C, 20)
-        this.createParticles(100000, 0.1, 0xff7979, 50)
-        this.createParticles(10000, 0.1, 0xF3EED9, 60)
+        this.createParticles(100000, 0.05, 0x9D001C, 20)
+        this.createParticles(100000, 0.05, 0xff7979, 50)
+        this.createParticles(10000, 0.05, 0xF3EED9, 60)
 
         this.getScene = this.getScene.bind(this)
     }
