@@ -4,7 +4,6 @@ export default class Camera
 {
     constructor()
     {
-        //super()
         this.screen =
         {
             width: window.innerWidth,
@@ -13,11 +12,11 @@ export default class Camera
 
         this.properties =
         {
-                fov: 75,
+            fov: 75,
             aspect: this.screen.width / this.screen.height,
-            near: 0.8,
-            far: 100,
-            target: new THREE.Vector3(0, 0, 0)
+            near: 1,
+            far: 200,
+            target: new THREE.Vector3(0, 0, 50)
         }
 
         this.camera = null

@@ -4,9 +4,9 @@ export default class World
     {
         this.scene = new THREE.Scene()
 
-        this.createParticles(100000, 0.05, 0x9D001C, 20)
-        this.createParticles(100000, 0.05, 0xff7979, 50)
-        this.createParticles(10000, 0.05, 0xF3EED9, 60)
+        this.createParticles(100000, 0.05 * 5, 0xff2222, 20)
+        this.createParticles(100000, 0.05 * 5, 0xff7979, 50)
+        this.createParticles(10000, 0.05 * 5, 0xF3EED9, 60)
 
         this.getScene = this.getScene.bind(this)
     }
@@ -39,7 +39,14 @@ export default class World
         }
         this.planet.addAttribute('position', new THREE.Float32BufferAttribute(this.pos, 3))
 
-        this.material = new THREE.PointsMaterial({ color: _color, size: _particleSize })
+        // Apply png texture to our particles
+        this.image = new Image()
+        this.texture = new THREE.Texture(this.image)
+        this.texture.needsUpdate = true
+        this.image.src = './src/medias/img/particle-1.png'
+
+        this.material = new THREE.PointsMaterial({ color: _color, size: _particleSize, map: this.texture, blending: THREE.AdditiveBlending })
+        this.material.depthTest = false
         this.particles = new THREE.Points(this.planet, this.material)
 
         this.scene.add(this.particles)

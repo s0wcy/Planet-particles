@@ -16,14 +16,6 @@ export default class Controler extends World
             mouseYdown: 0
         }
 
-        this.screen =
-        {
-            width: window.innerWidth,
-            halfWidth: window.innerWidth / 2,
-            height: window.innerHeight,
-            halfHeight: window.innerHeight / 2
-        }
-
         this.properties =
         {
             camera: camera.camera,

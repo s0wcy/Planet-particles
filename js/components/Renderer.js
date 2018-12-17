@@ -46,22 +46,6 @@ export default class Renderer extends Controler
         this.properties.renderer.render(_properties.scene, _properties.camera)
     }
 
-    // Lights
-
-    initLight()
-    {
-        this.light = new THREE.PointLight(
-            this.lightProperties.color,
-            this.lightProperties.intensity,
-            this.lightProperties.distance,
-            this.lightProperties.number,
-            this.lightProperties.decay
-        )
-
-        this.light.position.set(50, 50, 50)
-        this.properties.scene.add(this.light)
-    }
-
     // Postprocessing
     initPostProcess()
     {
@@ -91,7 +75,7 @@ export default class Renderer extends Controler
     {
         requestAnimationFrame(this.loop)
         this.update()
-        // this.render(this.properties)
-        this.composer.render(this.properties)
+        this.render(this.properties)
+        // this.composer.render(this.properties)
     }
 }
