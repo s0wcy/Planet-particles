@@ -7,8 +7,6 @@ export default class World
         this.createParticles(100000, 0.05 * 5, 0xff2222, 20)
         this.createParticles(100000, 0.05 * 5, 0xff7979, 50)
         this.createParticles(10000, 0.05 * 5, 0xF3EED9, 60)
-
-        this.getScene = this.getScene.bind(this)
     }
 
     randParticles(_radius)
@@ -51,6 +49,4 @@ export default class World
 
         this.scene.add(this.particles)
     }
-
-    getScene() { return this.scene }
 }

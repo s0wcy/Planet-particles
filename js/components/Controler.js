@@ -33,6 +33,7 @@ export default class Controler extends World
                 min: 1,
                 max: Math.PI / 1.5
             },
+            damping: 1
         }
 
         this.controler = null
@@ -51,6 +52,6 @@ export default class Controler extends World
         this.controler.minPolarAngle = this.properties.angle.min
         this.controler.maxPolarAngle = this.properties.angle.max
         this.controler.enableDamping = true
-        this.dampingFactor = 1
+        this.dampingFactor = this.properties.damping
     }
 }
