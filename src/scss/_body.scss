@@ -4,4 +4,10 @@ html, body {
     width: 100vW;
     height: 100vh;
     overflow: hidden;
+    background-color: black;
+}
+
+canvas {
+    position: absolute;
+    z-index: 100;
 }

@@ -3,6 +3,11 @@ html, body {
   padding: 0;
   width: 100vW;
   height: 100vh;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: black; }
+
+canvas {
+  position: absolute;
+  z-index: 100; }
 
 /*# sourceMappingURL=style.css.map */
