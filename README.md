@@ -1,5 +1,5 @@
 # Planet Particles
-Experience interactive gestion of a civilisation.
+This is only a planet model made with Vectors in WebGL using THREE.JS available [here](http://www.achabe.com/planet-particles/), to see the full demo with the game check out [terra-star](http://terra-star.aymericm.fr/)
 
 ### Built With
 - HTML5
@@ -9,7 +9,7 @@ Experience interactive gestion of a civilisation.
 
 ### Installing
 
-A online demo is available : **[PlanetParticles](http://www.achabe.com/webgl/)**
+A online demo is available : **[PlanetParticles](http://www.achabe.com/planet-particles/)**
 
 I recommend using a emulated server (MAMP will do the work) if you decide to edit or fork this project locally.
 You can also use **[serve](https://www.npmjs.com/package/serve)** command to emulate your server quickly directly on your terminal : `npm install -g serve`. (works on VS Code too)
@@ -17,16 +17,7 @@ You can also use **[serve](https://www.npmjs.com/package/serve)** command to emu
 ### Main features
 - THREE.JS planet particles
 - Custom OrbitControls
-- Bloom shader
-
-### How it works ?
-
-In "components" you will find all we need to render our scene :
-- Camera = create a camera and define his properties, also take care of responsive.
-- Controler = create an OrbitControls & customise it.
-- World = define the scene & each elements who will be placed in.
-- Renderer = apply any postprocessing elements as bloom shader & fxaa antialiasing.
-
+- GUI
 
 ### Author
 
